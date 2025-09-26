@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form RP</title>
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }
+    input, select, textarea { width: 100%; margin-bottom: 10px; padding: 8px; }
+    button { padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    textarea { resize: vertical; }
+  </style>
+</head>
+<body>
+  <h2>Form Điền RP</h2>
+
+  <label>Ngày:</label>
+  <input type="date" id="ngay" value="2025-09-26">
+
+  <label>Tên:</label>
+  <input type="text" id="ten" value="Thái">
+
+  <label>Tài khoản:</label>
+  <input type="text" id="taikhoan" value="@lethai08">
+
+  <label>Quản lý:</label>
+  <input type="text" id="quanly" value="PHONG THẦN (QUẢN LÍ KEVIN)">
+
+  <label>Số RP (loại 1k5):</label>
+  <input type="number" id="rp1k5" value="5">
+
+  <label>Gmail:</label>
+  <input type="email" id="gmail" value="truongthilinhzaty10472@gmail.com">
+
+  <label>Gmail mấy:</label>
+  <input type="number" id="gmailmay" value="4">
+
+  <label>IP:</label>
+  <input type="text" id="ip" value="171.255.119.131">
+
+  <label>Số RP từ IP:</label>
+  <input type="number" id="rp_ip" value="4">
+
+  <label>Thiết bị mấy:</label>
+  <input type="number" id="thietbimay" value="2">
+
+  <label>Thiết bị (IMEI):</label>
+  <input type="text" id="imei" value="868671052758116">
+
+  <label>Tổng RP:</label>
+  <input type="text" id="tongrp" value="83">
+
+  <label>Ca:</label>
+  <select id="ca">
+    <option value="1">Ca 1</option>
+    <option value="2" selected>Ca 2</option>
+    <option value="3">Ca 3</option>
+    <option value="4">Ca 4</option>
+    <option value="5">Ca 5</option>
+    <option value="6">Ca 6</option>
+  </select>
+
+  <label>Loại RP:</label>
+  <select id="loairp">
+    <option value="1k5" selected>1k5</option>
+    <option value="1k2">1k2</option>
+    <option value="1k">1k</option>
+  </select>
+
+  <button onclick="saoChep()">Sao chép nội dung</button>
+
+  <textarea id="ketqua" rows="10" readonly></textarea>
+
+  <script>
+    function saoChep() {
+      const ngay = document.getElementById("ngay").value;
+      const ten = document.getElementById("ten").value;
+      const taikhoan = document.getElementById("taikhoan").value;
+      const quanly = document.getElementById("quanly").value;
+      const rp1k5 = document.getElementById("rp1k5").value;
+      const gmail = document.getElementById("gmail").value;
+      const gmailmay = document.getElementById("gmailmay").value;
+      const ip = document.getElementById("ip").value;
+      const rp_ip = document.getElementById("rp_ip").value;
+      const thietbimay = document.getElementById("thietbimay").value;
+      const imei = document.getElementById("imei").value;
+      const tongrp = document.getElementById("tongrp").value;
+      const ca = document.getElementById("ca").value;
+      const loairp = document.getElementById("loairp").value;
+
+      const text = `${ngay} ${ten}
+${taikhoan}
+${quanly}
+(${rp1k5}rp ${loairp})
+Gmail ${gmailmay} ${gmail}
+IP ${ip} (${rp_ip}rp)
+Thiết bị ${thietbimay} : (IMEI : ${imei})
+Tổng ${tongrp} rp ${loairp}
+Ca ${ca} (${thietbimay} máy)`;
+
+      document.getElementById("ketqua").value = text;
+      navigator.clipboard.writeText(text);
+      alert("✅ Đã sao chép nội dung!");
+    }
+  </script>
+</body>
+</html>
